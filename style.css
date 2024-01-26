@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(30, 38%, 92%);
+    color: hsl(228, 12%, 48%);
+    font-size: 14px;
+}
+
+main {
+    margin: 25px 15px 25px 15px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+img {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    width: 100%;
+}
+
+.description-produit {
+    padding: 22px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.3rem;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: hsl(212, 21%, 14%);
+    line-height: 2rem;
+    margin: 1rem 0;
+}
+
+p {
+    line-height: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.price {
+    color: darkcyan;
+    font-weight: 700;
+    font-size: 2.1rem;
+    float: left;
+    margin-bottom: 1rem;
+}
+
+.price2 {
+    text-decoration: line-through;
+    display: flex;
+    position: relative;
+    left: 20px;
+    top:13px;
+}
+
+button {
+    font-size: 1rem;
+    font-weight: 700;
+    border : 0;
+    border-radius: 7px;
+    background-color: darkcyan;
+    color : white;
+    padding: 15px;
+    width: 100%;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(36, 41, 27);
+}
+
+.panier {
+    width:1rem;
+    margin-right: 0.7rem;
+}
+
+@media only screen and (min-width: 1200px) {
+    main {
+        display: flex;
+        align-items: center;
+        width: 45%;
+        margin: 150px auto;
+        background-color: white;
+        border-radius: 7px;
+    }
+
+    .description-produit {
+        width: 75%;
+    }
+}
