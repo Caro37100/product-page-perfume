@@ -1,0 +1,170 @@
+.container {        /*centrer les conteneurs au centre de page*/
+    margin: 0 auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: 80%;
+}
+
+body {
+    font-size: 15px; /*police racine*/
+    text-align: left;
+}
+
+h1, h2, h3, p, span, .price {
+    color: #503c30;
+    padding: 0.5rem;    /*taille en rem par rapport à 15px du body*/
+}
+
+h1 {
+    font-size : 3rem;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+}
+
+button:hover {      /*animation au passage de la souris*/
+    background-color: #ffffff;
+    color: #503c30;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #503c30;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.boutons-produits {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.valeur-produit {
+    width: 10%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products-grid {
+    display: flex; 
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;    /*format flex responsive en ligne*/
+    margin-bottom: 2rem;
+}
+
+.description-produit:first-child {
+    display: flex;          /*centrer image*/
+    flex-direction: column;   
+    width: 80%;   
+    margin: auto;           /*centrer dans conteneur*/
+    overflow: hidden;       /*éviter que l'image dépasse sur mobile*/
+}
+
+.description-produit:first-child > img {
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    max-height : 40rem;     /*limiter taille image star product*/
+    width: auto;            /*garder ratio par rapport hauteur*/
+}
+
+.description-produit {
+    display: flex;
+    flex-direction: column;
+}
+
+.basket {
+    display: flex;
+    justify-content: space-between; /* Pour aligner les éléments côte à côte avec un espacement entre eux */
+    align-items: flex-start; /* Pour aligner les éléments en haut de la section */
+    flex-wrap: wrap;    /* Retour à la ligne du récap commande en format mobile */
+}
+
+.recapitulatif-panier {
+    flex: 2;    /* taille plus grande que récap commande*/
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid #503c30;
+}
+
+.header-panier {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.supprimer, .commander {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.empty-basket {         /*classe à retirer une fois un produit ajouté au panier + JS pour mettre le produit ajouté au panier à la place*/
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    opacity: 0.6;
+    padding: 10rem;
+}
+
+.recapitulatif-commande {
+    flex: 1;    /* taille moins grande que récap panier*/
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border: 1px solid #503c30;
+    padding: 2rem;
+}
+
+.header-commande, .recapitulatif-total, .recapitulatif-livraison {
+    display: flex;
+    justify-content: space-between;
+}
+
+.articles, .price-total, .price-livraison {
+    font-weight: bold;
+}
+
+.commander {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.panier {       /*mise en forme du panier quand des produits y sont ajoutés*/
+    text-align: center;
+}
+
+.panier > img {        /*mise en forme pour chaque produit dans le panier*/
+    width: 20rem; /* Largeur de l'image */
+    height: auto; /* Hauteur automatique pour maintenir le ratio */
+    margin : auto; /* centrer l'image dans le panier */
+}
+
+/*Mobile panier*/
+@media screen and (max-width: 939px) {
+    .recapitulatif-commande {
+        margin-top: 1rem;   /* espace entre récap panier et commande */
+    }
+}
