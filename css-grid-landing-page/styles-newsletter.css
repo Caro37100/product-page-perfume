@@ -1,0 +1,241 @@
+body {
+   background-color: white;
+}
+.site-header {
+    background-image: none;  /* Pour permettre l'affichage de la couleur par dessus l'image dans les styles de base*/
+    background-color: hsl(4, 100%, 67%);
+    margin: 0;
+}
+
+.toggle-menu > li {
+    font-weight: 700;
+}
+
+.avantage, .subscribe {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.avantage > p {
+    margin: 0;
+    text-align: left;
+    line-height: none;
+    color: hsl(234, 29%, 20%);
+    font-size: 1.1rem;
+    padding-bottom: 1rem;
+}
+
+h1 {
+    text-transform: none;
+    padding: 0;
+    text-align: left;
+    color: hsl(235, 18%, 26%);
+    font-weight: 700;
+    font-size: 2.8rem;
+}
+
+li > svg {
+    margin-right: 1rem;
+    margin-top: 0.7rem;
+}
+
+.list > li {
+    text-align: left;
+    pointer-events: none; /* désactivation de l'effet hover sur les li de la liste*/
+    color: hsl(234, 29%, 20%);
+    font-size: 1.1rem;
+}
+
+.subscribe {
+    color: hsl(235, 18%, 26%);
+    text-align: left;
+    font-weight: 700;
+    margin: 0.5rem;
+}
+
+input { /* réafficher l'input qui avait était masqué sur le product-price*/
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom:1.2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    border-radius: 7px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+#email{
+    padding-left:1rem;
+    border: 1px solid hsl(231, 7%, 60%);
+    opacity: 0.7;
+}
+
+#submit {
+    color: white;
+    background-color: hsl(234, 29%, 20%);
+    border: 1px solid hsl(234, 29%, 20%);
+}
+
+#submit:hover {
+    background-color: rgb(255, 98, 87);
+    border: 1px solid hsl(4, 100%, 67%);
+    box-shadow:                             /*Effet ombre sur boutons*/
+  0.4px 2.6px 14.3px rgba(255, 98, 87, 0.032),
+  0.7px 5px 22.7px rgba(255, 98, 87, 0.045),
+  1.1px 7.5px 28.4px rgba(255, 98, 87, 0.052),
+  1.5px 10.2px 32.9px rgba(255, 98, 87, 0.057),
+  2px 13.4px 37px rgba(255, 98, 87, 0.06),
+  2.6px 17.9px 41.4px rgba(255, 98, 87, 0.063),
+  3.6px 24.5px 47px rgba(255, 98, 87, 0.065),
+  5.2px 34.8px 55.3px rgba(255, 98, 87, 0.067),
+  7.7px 51.9px 69.6px rgba(255, 98, 87, 0.069),
+  12px 81px 119px rgba(255, 98, 87, 0.07);
+}
+
+.error input#email {  
+    border: 2px solid #ff3860 !important;
+    margin-left: 0 !important;
+}
+
+form .error {
+    color: #ff3860;
+    display: inline-flex;
+    margin-left: 3rem;
+}
+
+ 
+.popupBackground {              /*Popup masquée*/
+    display: none;
+}
+
+.active {                       /*Popup affichée au clic*/
+    display: flex;
+}
+
+.popup {
+    padding: 2rem;
+    padding-top: 90%;
+    width: 100%;
+    height: 175%;
+    position: absolute;         /*Popup affichée au dessus du contenu*/
+    z-index: 10;
+    background-color: white;
+    top:10rem;
+    text-align: left;
+}
+
+.popup > h1 {
+    margin-top: 2rem;
+}
+
+.dismiss {
+    text-transform: none;
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: white;
+    background-color: hsl(234, 29%, 20%);
+    border: 1px solid hsl(234, 29%, 20%);
+    width: 100%;
+}
+
+.dismiss:hover {
+    color: white;
+    background-color: hsl(4, 100%, 67%);
+    border: 1px solid hsl(4, 100%, 67%);
+    box-shadow:                             /*Effet ombre sur boutons*/
+    0.4px 2.6px 14.3px rgba(255, 98, 87, 0.032),
+    0.7px 5px 22.7px rgba(255, 98, 87, 0.045),
+    1.1px 7.5px 28.4px rgba(255, 98, 87, 0.052),
+    1.5px 10.2px 32.9px rgba(255, 98, 87, 0.057),
+    2px 13.4px 37px rgba(255, 98, 87, 0.06),
+    2.6px 17.9px 41.4px rgba(255, 98, 87, 0.063),
+    3.6px 24.5px 47px rgba(255, 98, 87, 0.065),
+    5.2px 34.8px 55.3px rgba(255, 98, 87, 0.067),
+    7.7px 51.9px 69.6px rgba(255, 98, 87, 0.069),
+    12px 81px 119px rgba(255, 98, 87, 0.07);
+}
+
+footer {
+    background-image: none;  
+    background-color: hsl(4, 100%, 67%);
+}
+
+.footer-menu > li {
+    font-weight: 700;
+}
+
+/*Mobile Burger Menu*/
+@media screen and (max-width: 939px) {  
+    /*changement background couleur du burger menu*/
+    .navigation button::before {
+        background-image: none;
+        background-color: hsl(4, 100%, 67%);
+    }
+}
+
+/*Affichage Ordinateur*/
+@media only screen and (min-width: 940px) {
+    main {
+        padding : 2rem;
+        margin-right: 10rem;
+        margin-left: 10rem;
+    }
+    
+    .img-accueil{
+        float: right;
+    }
+
+    .img-accueil > img {
+        border-radius: 10px;
+        margin-top : -1.8rem;
+    }
+
+    .avantage{
+        display: flex;
+        flex-direction: column;
+    }
+
+    input { /* réafficher l'input qui avait était masqué sur le product-price*/
+        width: 50%;
+    }
+
+    .error input#email {  
+        border: 2px solid #ff3860 !important;
+    }
+
+    form .error {
+        color: #ff3860;
+        display: block;
+        margin-left: 0;
+    }
+
+    .active {
+        justify-content: center;
+    }
+
+    .popup {
+        padding-top: 3rem;
+        width: 30%;
+        height: 50%;
+        top: 15rem;
+        border: 1px solid hsl(4, 100%, 67%);
+        border-radius: 10px;
+    }
+    
+}
+
+/*Affichage Tablette*/
+@media only screen and (min-width: 940px) and (max-width: 1400px) {
+    main {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .popup {
+        width: 45%;
+    }
+}
