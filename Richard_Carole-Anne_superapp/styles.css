@@ -1,0 +1,423 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-weight: 400;
+}
+
+.container {        /*centrer les conteneurs au centre de page*/
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+/*Mobile First*/ /*Mobile First*/ /*Mobile First*/ /*Mobile First*/ /*Mobile First*/
+
+.site-header {
+    background-color: #DD5555;
+    color: #FFFFFF;
+    font-size: 14px;
+    height: 52px;
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.logo {
+    margin : 15px;
+    width : 120px;
+}
+
+li {                
+    list-style-type: none;
+}
+
+a:link,
+a:visited,
+a:active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+h1, h2, h3, p {
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFFFFF;
+    padding: 10px;
+    margin: auto;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 650px;
+    background-image :url("images/about.jpg.png"), url("images/about.jpg@2x.png");  /*IMG en background image pour une meilleure adaptation selon device + écriture du texte par dessus*/
+    background-size: cover;
+    background-position: center center;
+}
+
+.button-header {            /*boutons en colonne sur mobile*/
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-top: 1px solid #FFFFFF;
+    padding-top: 40px;
+}
+
+.button-header button {
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 24px;
+    font-weight: 400;
+    color: #FFFFFF;
+    padding-bottom: 25px;
+}
+
+button {
+    background: #FFFFFF;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 46px;
+    width: 112px;
+    border-radius: 5px;
+    border : 0;
+    cursor: pointer;
+}
+
+button:hover {
+    text-decoration: underline;
+} 
+
+button > img {
+    float: left;
+    margin: auto 5px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.services {
+    padding-top: 40px;                  /*padding top et bottom only pour éviter que les icônes ne mangent le texte du paragraphe en format mobile*/
+    padding-bottom: 40px;
+}
+
+.services h2 {
+    margin-bottom: 40px;
+}
+
+.liste-services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.services-item {
+    width: 358px;
+    height: 266px;  
+}
+
+.services-item h3 {
+    margin-bottom: 10px;
+}
+
+.service-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DD5555;
+    border-radius: 50%;                 /*forme ronde*/
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.team-header {
+    display: flex;
+    align-items: center;
+    min-height: 240px;
+    background-image :url("images/team.jpg.png"), url("images/team.jpg@2x.png"); /*IMG en background image pour une meilleure adaptation selon device + écriture du texte par dessus*/
+    background-size: cover;
+    background-position : top;
+}
+
+.team-header h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.liste-team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    margin-top : 64px;
+    margin-bottom: 63px;
+}
+
+.team-item {
+    padding: 15px;
+}
+
+.team-item > img {
+    border-radius: 50%;                 /*forme ronde*/
+    margin-bottom: 24px;
+}
+
+.team-item h3 {
+    margin-bottom: 24px;
+}
+
+.button-avatar {
+    background-color: #DD5555;
+    color: #FFFFFF;
+    width: 132px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #DD5555;
+    color: #FFFFFF;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    overflow: hidden;
+}
+
+.site-footer h2 {
+    margin-bottom : 30px;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-group {                               /*formulaire 100% page sur mobile*/
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: #FFFFFF;
+    border-radius: 2px;
+    border : 0;
+    width: 100%;
+    height: 30px;
+    padding: 7px;
+    margin-bottom : 15px;
+  }
+
+.form-group textarea {
+    height: 112px;
+}
+
+.contact button {
+    margin-right: 0;
+}
+
+.soumission {
+    width: 123px;
+}
+
+/*Media Queries adaptation largeur selon écrans*/
+@media screen and (min-width: 576px) {
+    .container {
+      max-width: 570px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .container {
+      max-width: 760px;
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .container {
+      max-width: 990px;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .container {
+      max-width: 1200px;
+    }
+  }
+
+/*Mobile Burger Menu*/
+@media screen and (max-width: 576px) {
+.navigation button {
+    position: absolute;                 /*positionnement du burger menu en absolu*/
+    display: block;
+    top: 10px;
+    right: 20px;
+    border: 0;
+    height: 32px;
+    width: 32px;
+    background: none;
+    color: #ffffff;
+    padding: 0;
+    transition: 0.5s ease-out transform; /*timing de transition pour affichage des boutons*/
+
+    & svg {
+      position: absolute;                /*positionnement des bandes du burger menu en absolu pour affichage au dessus du background*/
+      z-index: 10;
+      top: 1px;
+      display: block;
+      pointer-events: none;
+      height: 32px;
+      width: 32px;
+    }
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      border-radius: 200vh;
+      left: calc(-130vmax + 50%);
+      top: calc(-130vmax + 50%);
+      width: 132vmax;
+      height: 210vmax;
+      background: #DD5555;
+      z-index: 3;
+      transform: scale3d(0, 0, 0);        /*affichage du background uniquement lorsqu'on clique sur le burger menu*/
+    }
+
+    &[aria\-expanded=true] {
+      color: #fff;
+    }
+    
+    &[aria\-expanded=true]::before {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);      /*affichage des liens uniquement lorsqu'on clique sur le burger menu*/
+    }
+  }
+
+  .toggle-menu {
+    position : absolute;
+    z-index: 5;
+    pointer-events: none;
+    list-style: none;
+    width: 175px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+
+    & a {
+      text-decoration: none;
+      color: #fff;
+      opacity: 0;
+      display: block;
+    }
+
+    & a:hover {
+        text-decoration: underline;
+    }
+  }
+  
+  #menu:not([hidden]) {
+    pointer-events: all;
+    
+    & a {
+      opacity: 1;
+    }
+  }
+}
+
+/*Affichage Tablette*/
+@media only screen and (min-width: 576px) and (max-width: 960px) {
+    .navigation button {
+        display: none;
+    }
+
+    .toggle-menu {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        overflow : hidden;
+    } 
+    
+    .toggle-menu > li {
+        padding: 15px;
+    } 
+    
+    .toggle-menu > li:hover {
+        background-color: #2E2E2E;
+        opacity: 0.25;
+    } 
+
+    .button-header {                            /*boutons en ligne et centré sur header desktop et tablette*/
+        flex-direction: row;
+        max-width: 700px;                      /*boutons plus écartés sur tablette*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .half {                                     /*formulaire nom et email sur une ligne*/
+        width: calc((100% - 48px) / 2);    
+    }
+  }
+  
+/*Affichage Ordinateur*/
+  @media only screen and (min-width: 961px) {
+    .navigation button {
+        display: none;
+    }
+
+    .toggle-menu {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        overflow : hidden;
+    } 
+    
+    .toggle-menu > li {
+        padding: 15px;
+    } 
+    
+    .toggle-menu > li:hover {
+        background-color: #2E2E2E;
+        opacity: 0.25;
+    } 
+
+    .button-header {                                /*boutons en ligne et centré sur header desktop et tablette*/
+        flex-direction: row;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .half {                                         /*formulaire nom et email sur une ligne*/
+        width: calc((100% - 48px) / 2);
+    }
+  }
