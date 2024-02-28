@@ -1,0 +1,292 @@
+.container {        /*centrer les conteneurs au centre de page*/
+    margin: 0 auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: 80%;
+}
+
+body {
+    font-size: 15px; /*police racine*/
+    text-align: left;
+}
+
+h1, h2, h3, p, span, .price {
+    color: #503c30;
+    padding: 0.5rem;    /*taille en rem par rapport à 15px du body*/
+}
+
+h1 {
+    font-size : 3rem;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+}
+
+button:hover {      /*animation au passage de la souris*/
+    background-color: #ffffff;
+    color: #503c30;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #503c30;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.boutons-produits {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.valeur-produit {
+    width: 10%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products-grid {
+    display: flex; 
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;    /*format flex responsive en ligne*/
+    margin-bottom: 2rem;
+}
+
+.description-produit:first-child {
+    display: flex;          /*centrer image*/
+    flex-direction: column;   
+    width: 80%;   
+    margin: auto;           /*centrer dans conteneur*/
+    overflow: hidden;       /*éviter que l'image dépasse sur mobile*/
+}
+
+.description-produit:first-child > img {
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    max-height : 40rem;     /*limiter taille image star product*/
+    width: auto;            /*garder ratio par rapport hauteur*/
+}
+
+.description-produit {
+    display: flex;
+    flex-direction: column;
+}
+
+.basket {
+    display: flex;
+    justify-content: space-between; /* Pour aligner les éléments côte à côte avec un espacement entre eux */
+    align-items: flex-start; /* Pour aligner les éléments en haut de la section */
+    flex-wrap: wrap;    /* Retour à la ligne du récap commande en format mobile */
+}
+
+.recapitulatif-panier {
+    flex: 2;    /* taille plus grande que récap commande*/
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid #503c30;
+}
+
+.header-panier {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.supprimer, .commander, .ajout-membre, #btnModifier {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.empty-basket {         /*classe à retirer une fois un produit ajouté au panier + JS pour mettre le produit ajouté au panier à la place*/
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    opacity: 0.6;
+    padding: 10rem;
+}
+
+.recapitulatif-commande {
+    flex: 1;    /* taille moins grande que récap panier*/
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border: 1px solid #503c30;
+    padding: 2rem;
+}
+
+.header-commande, .recapitulatif-total, .recapitulatif-livraison {
+    display: flex;
+    justify-content: space-between;
+}
+
+.articles, .price-total, .price-livraison {
+    font-weight: bold;
+}
+
+.commander {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.panier {       /*mise en forme du panier quand des produits y sont ajoutés*/
+    text-align: center;
+}
+
+.panier > img {        /*mise en forme pour chaque produit dans le panier*/
+    width: 20rem; /* Largeur de l'image */
+    height: auto; /* Hauteur automatique pour maintenir le ratio */
+    margin : auto; /* centrer l'image dans le panier */
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {             /*code GitHub pour cards équipe*/
+    width: 32vw;    /*largeur de manière à ce que ça tienne sur une ligne en desktop*/
+    max-width: 675px;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    background: rgba(211, 103, 101,0.75);       /*petite opacité de notre rouge / rose*/
+    border-radius: 24px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+  
+  .card img {           /*adapter l'image et la faire dépasser légèrement du bloc en top*/
+    object-fit: cover;
+    margin: -15px 0 30px 0;
+    width: 100%;
+    height: 250px;
+  }
+  
+  .card h2, .card h3, .card p  {
+    margin: auto;
+    color: #ffffff;
+  }
+
+  .modification, .suppression { 
+    margin-bottom:1rem;
+    font-size: 1.5rem;
+  }
+
+  .modification {       /*padding différents pour les boutons car icônes pas de la même taille donc à revoir pour harmoniser*/
+    padding: 1rem;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+  }
+
+  .suppression {
+    padding: 1rem;
+  }
+
+  .ajout-membre {
+    display: flex;
+    margin: auto;
+  }
+
+  .popup-modification {         /*pop up masquée par défault*/
+    display: none;
+  }
+
+  .popup-modification.active::before {      /*à l'affichage, fond flouté de la page*/
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Couleur de fond semi-transparente */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    z-index: 12; /* arrière-plan */
+}
+
+  .active {           /*pop up affichée au clic bouton modif ou ajout membre*/
+    display: flex;
+  }
+
+  .popup {            /*pop up en position absolu au dessus des cartes team*/
+    position: absolute;
+    width: 80%;
+    top: 128%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    background-color: rgba(211, 103, 101);
+    color: #ffffff;
+    border-radius: 24px;
+    margin-top: 2rem;
+    padding-left: 4rem;
+    padding-bottom: 5rem;
+    z-index: 15;       /*z-index plus haut que le fond flouté et logo*/
+  }
+
+  .popup h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  input {
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 75%;
+  }
+
+  #paragraphe {         /*plus de place pour paragraphe car plus de texte*/
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+/*Mobile*/
+@media screen and (max-width: 939px) {
+    .recapitulatif-commande {
+        margin-top: 1rem;   /* espace entre récap panier et commande */
+    }
+    .card img {     /*image ronde en format mobile*/
+        border-radius: 50%;
+    }
+
+    .card {     /*largeur plus grande en format mobile pour prendre toute la place*/
+        width: 75vw;
+      }
+
+    .popup {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 80%;
+        top: 175%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+}
