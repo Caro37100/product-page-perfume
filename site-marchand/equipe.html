@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Icône onglet-->
+    <link rel="icon" href="images/logo.png">
+    <!--Polices-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--JS en defer / chargement après le DOM-->
+    <script src="scripts/script-menu.js" defer></script>
+    <script src="scripts/script-carousel.js" defer></script>
+    <script src="scripts/script-panier.js" defer></script>
+    <script src="scripts/script-equipe.js" defer></script>
+    <style> 
+      body {
+        font-family: "Monserrat", sans-serif;
+      }
+
+      p, span {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+    <!-- CSS - fichier global en haut et fichier spécifique header et footer en dessous car fichier prioritaire-->
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles-header-footer.css"/>
+    <title>SuperSite - HT SS !</title>
+  </head>
+
+  <header class="site-header">
+    <div class="container">
+      <img class="logo-header" src="images/logo.png" alt="logo">
+      <nav class="navigation">           <!--Burger menu visuel + croix fermeture du menu + Javascript menu.js-->
+        <button aria-expanded="false" aria-controls="menu">
+          <svg class="burger-menu" width="24" height="16" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="evenodd"><path d="M0 0h24v2H0zM0 7h24v2H0zM0 14h24v2H0z"/></g></svg>
+          <svg class="croix" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M17.778.808l1.414 1.414L11.414 10l7.778 7.778-1.414 1.414L10 11.414l-7.778 7.778-1.414-1.414L8.586 10 .808 2.222 2.222.808 10 8.586 17.778.808z" fill="#FFF" fill-rule="evenodd" /></svg>
+        </button>
+          <ul class="toggle-menu" id="menu" hidden>   <!--menu hidden par défaut, affichage uniquement format desktop + javascript menu.js-->
+          <li><a href="index.html">Produits</a></li> 
+          <li><a href="">Favoris</a></li>
+          <li><a href="equipe.html">Team</a></li>      
+          <li><a href="panier.html">Panier</a></li>    
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <body>
+    <main>
+    <div class = "carousel"> <!--Pour permettre le défilement d'images en JS -->
+      <div class="carousel-elements">  
+        <div class="element"> 
+          <img class="carousel-image" src="images/carousel-3.jpg" alt="bannière-salon-vintage">  <!-- afficher par défaut -->
+        </div>
+        <div class="element"> 
+          <img class="carousel-image" src="images/carousel-1.jpg" alt="bannière-salon-scandinave" hidden> <!-- afficher au clic -->
+        </div>
+        <div class="element"> 
+          <img class="carousel-image" src="images/carousel-2.jpg" alt="bannière-salon" hidden> <!-- afficher au clic -->
+        </div>
+      </div>
+    </div>
+    <div class="pagination"> <!--Système carousel de pagination quand on clique sur l'image correspondant à la page, le bouton change de couleur-->
+      <button class="page" data-index="0"></button> <!--index pour retrouver quel bouton correspond à quoi dans JS-->
+      <button class="page" data-index="1"></button>
+      <button class="page" data-index="2"></button>
+    </div>
+    <section class="team">
+    <div class="card">
+      <div class="container">
+        <img src="images/team.jpg">
+        <button class="modification">&#x1F589;</button>   <!--encodage pour crayon-->
+        <button class="suppression">&#x1F5D1;</button>    <!--encodage pour poubelle-->
+        <h2>Aline Morice</h2>
+        <h3>UI Designer</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam veritatis ex unde alias nostrum voluptates minima, debitis suscipit perferendis amet deleniti modi esse consequuntur vel, a quas sed voluptatibus optio!</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="container">
+        <img src="images/team1.jpg">
+        <button class="modification">&#x1F589;</button>
+        <button class="suppression">&#x1F5D1;</button>
+        <h2>André Roots</h2>
+        <h3>Web Developper</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam veritatis ex unde alias nostrum voluptates minima, debitis suscipit perferendis amet deleniti modi esse consequuntur vel, a quas sed voluptatibus optio!</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="container">
+        <img src="images/team2.jpg">
+        <button class="modification">&#x1F589;</button>
+        <button class="suppression">&#x1F5D1;</button>
+        <h2>Coralie Blossom</h2>
+        <h3>CEO</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam veritatis ex unde alias nostrum voluptates minima, debitis suscipit perferendis amet deleniti modi esse consequuntur vel, a quas sed voluptatibus optio!</p>
+      </div>
+    </div>
+   </section>
+    <button class="ajout-membre">Ajouter un membre</button>
+    <section class="popup-modification">   <!-- Popup modification et ajouter membre quand on clique sur bouton + JS -->
+      <div class="container">   
+        <!--TODO: ajouter IMG à modif avec téléchargement fichier local + voir pop pour suppression ou sinon via JS-->
+        <form class="popup">
+          <h1>Modification ou ajout d'un membre</h1>
+            <label for="nom">Prénom et Nom</label>
+            <input type="text" id="nom" name="nom">
+            <label for="poste">Poste</label>
+            <input type="text" id="poste" name="poste">
+            <label for="paragraphe">Description du poste</label>
+            <input type="text" id="paragraphe" name="paragraphe">
+            <button id="btnModifier">Valider</button>
+        </form>
+      </div>
+    </section>
+  </main>
+    <footer class="site-footer">
+      <div class="container">
+        <nav class="navigation">           <!--Icônes à la place du menu en mobile + JS menu avec burger menu header-->
+          <button aria-expanded="false" aria-controls="menu" class="icon">
+            <a href="index.html"><svg class="icon-1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" style="fill:#FFFFFF;"><path d="M 12 2.0996094 L 1 12 L 4 12 L 4 21 L 10 21 L 10 15 L 14 15 L 14 21 L 20 21 L 20 12 L 23 12 L 12 2.0996094 z"></path></svg></a>
+            <a href=""><svg class="icon-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></a>
+            <a href="equipe.html"><svg class="icon-3" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" style="fill:#FFFFFF;"><path d="M 16 4 C 12.144531 4 9 7.144531 9 11 C 9 13.394531 10.21875 15.519531 12.0625 16.78125 C 8.484375 18.304688 6 21.859375 6 26 L 8 26 C 8 21.535156 11.535156 18 16 18 C 20.464844 18 24 21.535156 24 26 L 26 26 C 26 21.859375 23.515625 18.304688 19.9375 16.78125 C 21.78125 15.519531 23 13.394531 23 11 C 23 7.144531 19.855469 4 16 4 Z M 16 6 C 18.773438 6 21 8.226563 21 11 C 21 13.773438 18.773438 16 16 16 C 13.226563 16 11 13.773438 11 11 C 11 8.226563 13.226563 6 16 6 Z"></path></svg></a>
+            <a href="panier.html"><svg class="icon-4" xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 16 13.539" fill="#ffffff"><path d="M365.446,366.986a1.533,1.533,0,1,0,.449-1.084A1.477,1.477,0,0,0,365.446,366.986Z" transform="translate(-354.045 -354.98)"/><path d="M15.817,37.879a.609.609,0,0,0-.433-.173H3.837q-.01-.064-.043-.232t-.053-.268a1.536,1.536,0,0,0-.072-.241.713.713,0,0,0-.125-.223.621.621,0,0,0-.466-.2H.616a.609.609,0,0,0-.433.173.549.549,0,0,0,0,.818.609.609,0,0,0,.433.173H2.577l1.7,7.482q-.019.036-.2.345t-.284.541a.956.956,0,0,0-.106.359.545.545,0,0,0,.183.409.61.61,0,0,0,.433.173h9.846a.61.61,0,0,0,.433-.173.549.549,0,0,0,0-.818.609.609,0,0,0-.433-.173H5.308a1.694,1.694,0,0,0,.231-.582.931.931,0,0,0-.024-.2q-.024-.109-.058-.241t-.043-.2l10.039-1.109a.608.608,0,0,0,.394-.2A.555.555,0,0,0,16,42.943V38.289A.545.545,0,0,0,15.817,37.879Z" transform="translate(0 -36.543)"/><path d="M109.632,366.986a1.533,1.533,0,1,0,.449-1.084A1.476,1.476,0,0,0,109.632,366.986Z" transform="translate(-106.105 -354.98)"/></svg></a>
+          </button>
+          <ul class="footer-menu" id="menu" hidden>     <!--menu hidden par défaut, affichage uniquement format desktop + javascript menu.js-->
+            <li><a href="index.html">Produits</a></li> 
+            <li><a href="">Favoris</a></li>
+            <li><a href="equipe.html">Team</a></li>     
+            <li><a href="panier.html">Panier</a></li>    
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
