@@ -102,9 +102,11 @@
     <button class="ajout-membre">Ajouter un membre</button>
     <section class="popup-modification">   <!-- Popup modification et ajouter membre quand on clique sur bouton + JS -->
       <div class="container">   
-        <!--TODO: ajouter IMG à modif avec téléchargement fichier local + voir pop pour suppression ou sinon via JS-->
+        <!--TODO: voir pop pour suppression ou sinon via JS-->
         <form class="popup">
           <h1>Modification ou ajout d'un membre</h1>
+            <label for="avatar">Photo</label>
+            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">  <!-- champ ajout fichier image + fichiers acceptés -->
             <label for="nom">Prénom et Nom</label>
             <input type="text" id="nom" name="nom">
             <label for="poste">Poste</label>

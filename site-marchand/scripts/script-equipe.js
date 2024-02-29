@@ -60,27 +60,38 @@ document.addEventListener("DOMContentLoaded", function () {
         let poste = document.getElementById("poste").value;
         let paragraphe = document.getElementById("paragraphe").value;
 
-        // TODO: modifier la gestion de l'image qu'on peut charger via un fichier
+        // Récupérer les valeurs de du fichier image intégrer
+        // Utilisation API File
+        let image = document.getElementById("avatar");
+        let fichierImage = image.files[0];      
 
-        // Créer un nouvel élément de carte (membre)
-        let newCard = document.createElement("div");
-        newCard.classList.add("card");
-        newCard.innerHTML = `
-            <div class="container">
-            <img src="images/team-placeholder.jpg">
-            <button class="modification">&#x1F589;</button>
-            <button class="suppression">&#x1F5D1;</button>
-            <h2>${nom}</h2>           
-            <h3>${poste}</h3>
-            <p>${paragraphe}</p>
-            </div>
+        // Au moment de chargement du fichier image
+        if (fichierImage) {
+            // Création un objet URL pour l'image chargée
+            let imageURL = URL.createObjectURL(fichierImage);
+
+            // Créer un nouvel élément de carte (membre)
+            let newCard = document.createElement("div");
+            newCard.classList.add("card");
+            newCard.innerHTML = `
+                <div class="container">
+                <img src="${imageURL}">
+                <button class="modification">&#x1F589;</button>
+                <button class="suppression">&#x1F5D1;</button>
+                <h2>${nom}</h2>           
+                <h3>${poste}</h3>
+                <p>${paragraphe}</p>
+                </div>
             `;
 
-        // Ajouter la nouvelle carte à la section "team"
-        let teamSection = document.querySelector(".team");
-        teamSection.appendChild(newCard);
+            // Ajouter la nouvelle carte à la section "team"
+            let teamSection = document.querySelector(".team");
+            teamSection.appendChild(newCard);
 
-        // Cacher la popup après l'ajout du membre
-        cacherPopup();
+            // Cacher la popup après l'ajout du membre
+            cacherPopup();
+        } else {
+            alert("Veuillez sélectionner une image.");
+        };
     };
 });
