@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="shortcut icon" href="images/Superapp.png"/>  <!-- Icône onglet -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Police google fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"> <!-- Police google -->
+        <script src ="script-destruction-car.js" defer></script>
+        <style>
+          body {
+            font-family: 'Open Sans', sans-serif;
+          }
+        </style>
+        <link rel="stylesheet" href="styles.css"/>
+        <title>SuperApp</title>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <div class="container">
+                <img class="logo" src="images/Logo.png" alt="logo" 
+                                  srcset="images/Logo.png 1x, 
+                                          images/Logo@2x.png 2x"
+                                  style="max-width:240px"/> <!-- Logo 1x et 2x pour écran standard ou retina -->
+                <nav class="navigation"> 
+                  <button aria-expanded="false" aria-controls="menu">
+                    <svg id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+                      <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
+                    </svg>
+                  </button>
+                  <ul class="toggle-menu" id="menu" hidden>  <!-- Menu avec ancre sur la page pour chaque lien en burger pour le mobile first -->
+                        <li><a href="#about">A propos</a></li> 
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#team">L'équipe</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul> 
+                </nav>
+            </div>
+        </header>
+
+        <section class="about" id="about">
+            <div class="container">
+                <h1>SUPER APP</h1>
+                <p>L'application trop super !</p>
+                <div class="button-header">
+                    <button><img src="images/thumbs-up.svg" alt="Like"/>Like it</button>
+                    <button><img src="images/heart-shape-silhouette.svg" alt="Love"/>Love it</button>
+                    <button><img src="images/shopping-cart-black-shape.svg" alt="Buy"/>Buy it</button>
+                </div>
+            </div>
+        </section>
+
+          <section class="services" id="services">
+            <div class="container">
+              <h2>ELLE FAIT DES TRUCS SUPER !</h2>
+                <ul class="liste-services">
+                  <li class="services-item">
+                    <div class="service-icon"> <!-- Classe pour séparer l'image de la mise en page fond de couleur / border-radius -->
+                        <img src="images/fork-and-knife-silhouette.svg" alt="fork-and-knife"/>    
+                    </div>
+                    <h3>Mettre la table</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
+                  </li>
+                  <li class="services-item">
+                    <div class="service-icon">
+                        <img src="images/bed.svg" alt="lit"/>
+                    </div>
+                    <h3>Faire le lit</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
+                  </li>
+                  <li class="services-item">
+                    <div class="service-icon">
+                        <img src="images/fire-symbol.svg" alt="feu"/>
+                    </div>
+                    <h3>Allumer le feu</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
+                  </li>
+                  <li class="services-item">
+                      <div class="service-icon">
+                          <img src="images/plant-leaf-with-white-details.svg" alt="feuilles"/>
+                      </div>
+                      <h3>Ramasser les feuilles</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
+                  </li>
+                  <li class="services-item">
+                      <div class="service-icon">
+                          <img src="images/umbrella-black-silhouette.svg" alt="parapluie"/>
+                      </div>
+                      <h3>Protéger de la pluie</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
+                  </li>
+                  <li class="services-item">
+                      <div class="service-icon">
+                          <img src="images/dollar-symbol.svg" alt="argent"/>
+                      </div>
+                      <h3>Vider son compte</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
+                  </li>
+                </ul> 
+            </div>
+          </section>
+
+          <section class="team" id="team">
+            <header class="team-header">
+                <div class="container">
+                  <h2>La super équipe à l’origine de SuperApp</h2>
+                </div>
+            </header>
+                <div class="container">
+                  <ul class="liste-team">
+                    <li class="team-item"> 
+                    <img src="images/avaone.jpg.png" alt="Photo de Tex Talign"
+                         srcset="images/avaone.jpg.png 1x,
+                                 images/avaone.jpg@2x.png 2x"
+                         style="max-width:480px"/>  <!-- Photo 1x et 2x pour écran standard ou retina -->
+                    <h3>Tex Talign</h3>
+                    <button class="button-avatar">
+                      <img src="images/envelope.svg" alt="enveloppe"/>
+                      <a href="mailto:tex.talign@gmail.com">Lui écrire</a> <!-- Adresse mail intégrée en lien et accessible en cliquant sur le bouton -->
+                    </button>
+                    </li>
+                    <li class="team-item">
+                    <img src="images/avatwo.jpg.png" alt="Photo de Marge Inn"
+                         srcset="images/avatwo.jpg.png 1x,
+                                 images/avatwo.jpg@2x.png 2x"
+                         style="max-width:480px"/> <!-- Photo 1x et 2x pour écran standard ou retina -->    
+                    <h3>Marge Inn</h3>
+                    <button class="button-avatar">
+                      <img src="images/envelope.svg" alt="enveloppe"/>
+                      <a href="mailto:marge.inn@gmail.com">Lui écrire</a> <!-- Adresse mail intégrée en lien et accessible en cliquant sur le bouton -->
+                    </button>
+                    </li>
+                    <li class="team-item">
+                    <img src="images/avathree.jpg.png" alt="Photo de Isaac Newton"
+                         srcset="images/avathree.jpg.png 1x,
+                                 images/avathree.jpg@2x.png 2x"
+                         style="max-width:480px"/> <!-- Photo 1x et 2x pour écran standard ou retina -->  
+                    <h3>Isaac Newton</h3>
+                    <button class="button-avatar">
+                      <img src="images/envelope.svg" alt="enveloppe"/>
+                      <a href="mailto:isaac.newton@gmail.com">Lui écrire</a> <!-- Adresse mail intégrée en lien et accessible en cliquant sur le bouton -->
+                    </button>
+                    </li>
+                    <li class="team-item">
+                    <img src="images/avafour.jpg.png" alt="Photo de Ash Tehemel"
+                         srcset="images/avafour.jpg.png 1x,
+                                 images/avafour.jpg@2x.png 2x"
+                         style="max-width:480px"/> <!-- Photo 1x et 2x pour écran standard ou retina --> 
+                    <h3>Ash Tehemel</h3>
+                    <button class="button-avatar">
+                      <img src="images/envelope.svg" alt="enveloppe"/>
+                      <a href="mailto:ash.tehemel@gmail.com">Lui écrire</a> <!-- Adresse mail intégrée en lien et accessible en cliquant sur le bouton -->
+                    </button>
+                    </li>
+                  </ul>  
+                </div>
+          </section>
+
+          <footer class="site-footer" id="contact">
+            <div class="container">
+              <h2>ENVOYEZ-NOUS UN MESSAGE</h2>
+              <form action="" method="get" class="contact">
+                  <div class="form-group half">  <!-- Formulaire en ligne sur desktop nom et e-mail -->
+                    <label for="full-name">Votre nom</label>
+                    <input id="full-name" name="full-name" type="text"/>
+                  </div>
+                  <div class="form-group half">  <!-- Formulaire en ligne sur desktop nom et e-mail -->
+                    <label for="email">Votre e-mail</label>
+                    <input id="email" name="email" type="email"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message"></textarea>
+                  </div>
+                  <button class="soumission"><img src="images/paper-plane.svg" alt="envoyer"/>Envoyer</button>
+              </form>
+            </div>
+          </footer>
+          <script src="menu.js"></script>
+    </body>
+</html>
