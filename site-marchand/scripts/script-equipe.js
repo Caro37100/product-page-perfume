@@ -88,32 +88,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // FONCTION DE MODIFICATION D'UN MEMBRE
     function modificationMembre() {
-        console.log("Fonction modificationMembre appelée."); // Vérifier si la fonction est appelée
 
     // Récupérer les valeurs des champs du formulaire de modification
         let nom = document.getElementById("nom").value;
         let poste = document.getElementById("poste").value;
         let paragraphe = document.getElementById("paragraphe").value;
 
-        // Récupérer tous les éléments de carte (membre)
-        let cartes = document.querySelectorAll('.card');
+        // Récupérer les valeurs de du fichier image intégrer
+        // Utilisation API File
+        let image = document.getElementById("avatar");
+        let fichierImage = image.files[0];
+    
+        // Au moment de chargement du fichier image
+        if (fichierImage) {
+            // Création un objet URL pour l'image chargée
+            let imageURL = URL.createObjectURL(fichierImage);
 
-        // Mettre à jour les valeurs de chaque carte avec les nouvelles valeurs du formulaire
-        cartes.forEach(function (carte) {
-            carte.querySelector("h2").textContent = nom;
-            carte.querySelector("h3").textContent = poste;
-            carte.querySelector("p").textContent = paragraphe;
-        });
+            // Récupérer tous les éléments de carte (membre)
+            let cartes = document.querySelectorAll('.card');
 
-        // Cacher la popup après la modification des membres
-        cacherPopupModification();
-        // Nettoyage des champs input après la modification des membres
-        nettoyerInputForm();
-}
+            // Mettre à jour les valeurs de chaque carte avec les nouvelles valeurs du formulaire
+            cartes.forEach(function (carte) {
+                carte.querySelector("img").src = imageURL;
+                carte.querySelector("h2").textContent = nom;
+                carte.querySelector("h3").textContent = poste;
+                carte.querySelector("p").textContent = paragraphe;
+            });
+
+            // Cacher la popup après la modification des membres
+            cacherPopupModification();
+            // Nettoyage des champs input après la modification des membres
+            nettoyerInputForm();
+        } else {
+            alert("Veuillez sélectionner une image.");
+        };
+    };
 
     // AJOUT MEMBRE A L'OUVERTURE DE LA POPUP FORMULAIRE
     function ajoutMembre () {
-        console.log("Fonction ajoutMembre appelée."); // Vérifier si la fonction est appelée
 
         // Récupérer les valeurs des champs du formulaire
         let nom = document.getElementById("nom").value;
@@ -135,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
             newCard.classList.add("card");
             newCard.innerHTML = `
                 <div class="container">
-                img src="${imageURL}">
+                <img src="${imageURL}">
                 <button class="modification">&#x1F589;</button>
                 <button class="suppression">&#x1F5D1;</button>
                 <h2>${nom}</h2>           
@@ -152,8 +164,8 @@ document.addEventListener("DOMContentLoaded", function () {
             cacherPopupAjout();
             // Nettoyage des champs input après l'ajout du membre
             nettoyerInputForm();
-        } /*else {
+        } else {
             alert("Veuillez sélectionner une image.");
-        };*/
         };
-    });
+    };
+});
