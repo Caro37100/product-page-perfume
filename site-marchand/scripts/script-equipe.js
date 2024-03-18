@@ -1,60 +1,120 @@
 //AJOUT MEMBRE OU MODIFICATION AVEC AFFICHAGE POPUP
 document.addEventListener("DOMContentLoaded", function () {
-    //AFFICHAGE POPUP / MASQUAGE POPUP
-    function afficherPopup() {
+    //AFFICHAGE POPUP MODIFICATION / MASQUAGE POPUP --> distinction modification et ajout pour la gestion de la validation des clics lorsqu'on clique sur soit le bouton modifier soit ajouter !
+    function afficherPopupModification() {
         let popup = document.querySelector(".popup-modification");
-        // La popup est masquée par défaut (display:none), ajouter la classe "active"
+        // La popup est masquée par défaut (display:none), ajouter la classe "modification-active"
         // va changer son display et la rendre visible. 
-        popup.classList.add("active");
+        popup.classList.add("modification-active");
     };
 
-    function cacherPopup() {
-        let popup = document.querySelector(".popup-modification")
+    //AFFICHAGE POPUP AJOUT / MASQUAGE POPUP
+    function afficherPopupAjout() {
+        let popup = document.querySelector(".popup-modification");
+        // La popup est masquée par défaut (display:none), ajouter la classe "ajout-active"
+        // va changer son display et la rendre visible. 
+        popup.classList.add("ajout-active");
+    };
+
+    function cacherPopupModification() {
+        let popup = document.querySelector(".popup-modification");
         // La popup est masquée par défaut (display:none), supprimer la classe "active"
         // va rétablir cet affichage par défaut. 
-        popup.classList.remove("active")
-    }
+        popup.classList.remove("modification-active");
+    };
 
-    //GESTION DES CLICS (délégation évènements modification / suppression / ajout pour tout le document pour que ça fonctionne aussi avec les nouveaux membres créés)
+    function cacherPopupAjout() {
+        let popup = document.querySelector(".popup-modification");
+        // La popup est masquée par défaut (display:none), supprimer la classe "active"
+        // va rétablir cet affichage par défaut. 
+        popup.classList.remove("ajout-active");
+    };
+
+    //GESTION AFFICHAGE POPUP (délégation évènements modification / suppression / ajout pour tout le document pour que ça fonctionne aussi avec les nouveaux membres créés)
     document.addEventListener("click", (event) => {
-        // Vérifier si le clic est sur un bouton de modification = on y modifie la carte associée
-        if (event.target.classList.contains("modification")) {
-            afficherPopup();
-        }
+            // Vérifier si le clic est sur un bouton de modification = on y modifie la carte associée
+            if (event.target.classList.contains("modification")) {
+                afficherPopupModification(); 
+            } else if (event.target.classList.contains("ajout-membre"))
+                afficherPopupAjout(); 
+        });
 
-        // Vérifier si le clic est sur un bouton de suppression = on supprime la carte associée
+    // GESTION BOUTON VALIDATION FORMULAIRE MODIFICATION ET AJOUT
+    let validation = document.getElementById("btnModifier");
+    validation.addEventListener ("click", function(event) {
+        event.preventDefault();
+        // Si la classe = "ajout-active", on appelle la fonction "ajoutMembre", sinon "modificationMembre"
+        if (document.querySelector(".ajout-active")) { 
+            ajoutMembre();
+        } else {
+            modificationMembre();
+        }
+    });
+
+    // GESTION BOUTON SUPPRESSION MEMBRE
+    document.addEventListener("click", (event) => {
+     // Vérifier si le clic est sur un bouton de suppression = on supprime la carte associée
         // TODO later: personnaliser la popup de suppression ?
         if (event.target.classList.contains("suppression")) {
             let confirmationSuppression = confirm("Êtes-vous sûr de vouloir supprimer ce membre ? Cette action est définitive !");
             if (confirmationSuppression) {
                 let membre = event.target.closest(".card");
                 membre.remove();
-            }
-        }
-
-        // Vérifier si le clic est sur le bouton d'ajout de membre = on affiche la popup pour ajouter le membre
-        if (event.target.classList.contains("ajout-membre")) {
-            afficherPopup();
-        }
+            };
+        };
     });
 
-    // GESTION BOUTON VALIDATION FORMULAIRE
-    let validationModification = document.getElementById("btnModifier");
-    validationModification.addEventListener ("click", function(event) {
-        // Bloquer la gestion du clic par défaut du formulaire
-        event.preventDefault()
-        // Appeler la fonction pour gérer l'ajout d'un membre
-        ajoutMembre(); 
-    });
+    // NETTOYER CHAMPS INPUT APRES AJOUT MEMBRE
+    function nettoyerInputForm () {
+        document.getElementById("nom").value = "";
+        document.getElementById("poste").value = "";
+        document.getElementById("paragraphe").value = "";
+        document.getElementById("avatar").value = "";
+    }
 
-    // TODO: ajouter ce que fait la fonction au clic du bouton valider pour la modification d'un membre
-    /* function modificationMembre (card) {
-            // TODO: ajouter ce que fait la fonction au clic du bouton valider avec le form
+    // GESTION DE L'OUVERTURE DE LA POPUP DE MODIFICATION
+    let btnAModifier = document.querySelectorAll(".modification");
+    btnAModifier.forEach(function (bouton) {
+        bouton.addEventListener("click", function () {
+            let carteAModifier = bouton.closest('.card');
+            afficherPopupModification(); // Afficher la popup de modification
+
+            // Pré-remplir les champs du formulaire avec les valeurs actuelles de la carte
+            document.getElementById("nom").value = carteAModifier.querySelector("h2").textContent;
+            document.getElementById("poste").value = carteAModifier.querySelector("h3").textContent;
+            document.getElementById("paragraphe").value = carteAModifier.querySelector("p").textContent;
         });
-    };*/
+    });
+
+    // FONCTION DE MODIFICATION D'UN MEMBRE
+    function modificationMembre() {
+        console.log("Fonction modificationMembre appelée."); // Vérifier si la fonction est appelée
+
+    // Récupérer les valeurs des champs du formulaire de modification
+        let nom = document.getElementById("nom").value;
+        let poste = document.getElementById("poste").value;
+        let paragraphe = document.getElementById("paragraphe").value;
+
+        // Récupérer tous les éléments de carte (membre)
+        let cartes = document.querySelectorAll('.card');
+
+        // Mettre à jour les valeurs de chaque carte avec les nouvelles valeurs du formulaire
+        cartes.forEach(function (carte) {
+            carte.querySelector("h2").textContent = nom;
+            carte.querySelector("h3").textContent = poste;
+            carte.querySelector("p").textContent = paragraphe;
+        });
+
+        // Cacher la popup après la modification des membres
+        cacherPopupModification();
+        // Nettoyage des champs input après la modification des membres
+        nettoyerInputForm();
+}
 
     // AJOUT MEMBRE A L'OUVERTURE DE LA POPUP FORMULAIRE
     function ajoutMembre () {
+        console.log("Fonction ajoutMembre appelée."); // Vérifier si la fonction est appelée
+
         // Récupérer les valeurs des champs du formulaire
         let nom = document.getElementById("nom").value;
         let poste = document.getElementById("poste").value;
@@ -75,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
             newCard.classList.add("card");
             newCard.innerHTML = `
                 <div class="container">
-                <img src="${imageURL}">
+                img src="${imageURL}">
                 <button class="modification">&#x1F589;</button>
                 <button class="suppression">&#x1F5D1;</button>
                 <h2>${nom}</h2>           
@@ -89,9 +149,11 @@ document.addEventListener("DOMContentLoaded", function () {
             teamSection.appendChild(newCard);
 
             // Cacher la popup après l'ajout du membre
-            cacherPopup();
-        } else {
+            cacherPopupAjout();
+            // Nettoyage des champs input après l'ajout du membre
+            nettoyerInputForm();
+        } /*else {
             alert("Veuillez sélectionner une image.");
+        };*/
         };
-    };
-});
+    });
